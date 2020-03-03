@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "antd": "4.0.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-window": "1.8.5"
+  },
+  "keywords": [],
+  "name": "popup-menus-demo",
+  "description": "An interactive demonstration of various popup/modal dialogs.",
+  "version": "0.0.0",
+  "devDependencies": {
+    "react-scripts": "1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

@@ -1,0 +1,58 @@
+import React from "react";
+import "antd/dist/antd.css";
+import "./index.css";
+import { Checkbox } from "antd";
+
+const CheckboxGroup = Checkbox.Group;
+
+const plainOptions = ["VxWorks", "Embedded Linux", "Desktop Linux"];
+const defaultCheckedList = ["VxWorks", "Embedded Linux"];
+
+class VersionCompatibilities extends React.Component {
+  state = {
+    checkedList: defaultCheckedList,
+    indeterminate: true,
+    checkAll: false
+  };
+
+  onChange = checkedList => {
+    this.setState({
+      checkedList,
+      indeterminate:
+        !!checkedList.length && checkedList.length < plainOptions.length,
+      checkAll: checkedList.length === plainOptions.length
+    });
+  };
+
+  onCheckAllChange = e => {
+    this.setState({
+      checkedList: e.target.checked ? plainOptions : [],
+      indeterminate: false,
+      checkAll: e.target.checked
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <div className="site-checkbox-all-wrapper">
+          <Checkbox
+            indeterminate={this.state.indeterminate}
+            onChange={this.onCheckAllChange}
+            checked={this.state.checkAll}
+          >
+            Check all
+          </Checkbox>
+        </div>
+        <br />
+        <CheckboxGroup
+          options={plainOptions}
+          value={this.state.checkedList}
+          onChange={this.onChange}
+        />
+      </div>
+    );
+  }
+}
+
+export default VersionCompatibilities;
